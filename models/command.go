@@ -75,8 +75,8 @@ func (sender *Sender) handleJdCookies(handle func(ck *JdCookie)) error {
 			}
 		}
 		if !ok {
-			sender.Reply("你尚未绑定🐶东账号，请对我说扫码，扫码后即可查询账户资产信息。")
-			return errors.New("你尚未绑定🐶东账号，请对我说扫码，扫码后即可查询账户资产信息。")
+			sender.Reply("你尚未绑定🐶东账号，请下载群文件【京东手机验证码获取CK】，按照压缩包内操作指导文件获取信息后私信发给群主，待群主绑定后即可查询。")
+			return errors.New("你尚未绑定🐶东账号，请下载群文件【京东手机验证码获取CK】，按照压缩包内操作指导文件获取信息后私信发给群主，待群主绑定后即可查询。")
 		}
 	} else {
 		cks = LimitJdCookie(cks, a)
@@ -172,7 +172,7 @@ var codeSignals = []CodeSignal{
 			// 	return nil
 			// }
 			// return rsp
-			return "小滴滴和京东没有任何关系，请使用ninja。"
+			return "扫码功能已经失效，如果是第一次使用，请下载群文件【京东手机验证码获取CK】，按照压缩包内操作指导文件获取信息后私信发给群主，待群主绑定后即可查询；如果非第一次使用，并收到CK失效通知，请参考群文件【手动更新过期CK操作文档】进行CK更新。"
 		},
 	},
 	{
@@ -202,7 +202,7 @@ var codeSignals = []CodeSignal{
 		Handle: func(sender *Sender) interface{} {
 			if !sender.IsAdmin {
 				coin := GetCoin(sender.UserID)
-				if coin < 0 {
+				if coin < 99999 {
 					return "许愿币不足以查看UserAgent。"
 				}
 				sender.Reply("查看一次扣1个许愿币。")
