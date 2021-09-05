@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../static/tc.css">
+  <title>哔咚哔咚</title>
+</head>
+ 
+<body>
+  <div id="dd">
+    <div>
+      <img id="hd" class="ani" src="https://s1.hdslb.com/bfs/static/passport/static/img/loadTV.99606e2.gif" />
+    </div>
+    <div><img id="qrcode" height="170em" src="./ok.svg" /></div>
+ <div class="t t1">扫描二维码登录</div>
+        <div class="t t2"> <a class="tl" id="jumpapp" href="#">点击这里</a></div>
+        <div class="t t2">跳转京东APP登录</div>
+    </div>
+  <div><img class="bg" src="https://s1.hdslb.com/bfs/static/passport/static/img/2233login.af9c53d.png" /></div>
+  <div class="layer" id="layer"></div>
+  <div id="globalAd">
+    <div id='hero-img' style="background-color: #667eff;background: linear-gradient(to top, #667eff 0.0%, #667eff 0.0%);"></div>
+    <div id='profile-img'><img src="../static/logo.png" /></div>
+    <div id='content'>
+      <p style="font-size: 20px;font-weight: bold;color:red;">扫码公告</p>
+      <p style="font-size: 15px;font-weight: bold;color:Orange;">扫码后返回浏览器显示√即为登录成功。<br />
+      首次登陆请开启以下小游戏<br />
+      并创建角色完成新手任务<br /></p>
+      <p style="font-size: 14px;font-weight: bold;text-align:justify;text-justify:inter-ideograph;color: blue; opacity: 0.5;">1、京东👉我的👉更多👉(东东农场、东东萌宠、宠汪汪、东东小窝、摇钱树)。<br />
+      2、下载【京喜App】👉我的👉(京喜农场、京喜工厂、京喜牧场)。<br />
+      3、下载【京东金融】👉我的👉(天天提鹅、养猪猪)。<br />
+      4、每天可领取100+京豆和若干现金红包、优惠券等<br /></p><br />
+      <div align="left" style="float:left">
+        <a href="">
+         <button class="anniu">加群了解更多</button></a>
+      </div>
+      <div align="right">
+        <button class="anniu" onclick="closeGlobalAd()">朕已阅</button>
+      </div>
+    </div>
+  </div>
+  </body>
+  <script>
+  var timer;
+    var qrcode = document.getElementById("qrcode")
+    var loginUrl = ""
+    var success = "https://ghproxy.com/https://raw.githubusercontent.com/SamDudu/xdd/main/static/ok.svg";
+    var jumpapp = document.getElementById('jumpapp')
+    var hd = document.getElementById("hd")
+
+    function showQrcode() {
+        var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                data = JSON.parse(xmlhttp.responseText)
+                if (data.url && data.url.indexOf("http") != -1) {
+                    qrcode.src = "data:image/png;base64," + data.img
+                    loginUrl = data.url
+                } else {
+                    showQrcode()
+                }
+            }
+        }
+        xmlhttp.open("GET", "/api/login/qrcode", true);
+        xmlhttp.send();
+    }
+    showQrcode()
+
+    function login() {
+        var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var results = xmlhttp.responseText
+                console.log(results)
+                switch (results) {
+                    case "授权登录未确认":
+                        break;
+                    case "登录":
+                        hd.style.visibility = "hidden";
+                        qrcode.src = success
+                        clearInterval(timer)
+                        setTimeout(() => {
+                            window.location.href = "/admin"
+                        }, 1000);
+                        break;
+                    case "成功":
+                        hd.style.visibility = "hidden";
+                        qrcode.src = success
+                        clearInterval(timer)
+                        break;
+                    default:
+                        showQrcode()
+                        break;
+                }
+            }
+        }
+        xmlhttp.open("GET", "/api/login/query", true);
+        xmlhttp.send();
+    }
+
+    function polling() {
+        timer = setInterval(() => {
+            login()
+        }, 1500);
+    }
+    polling()
+
+    jumpapp.addEventListener('click', function() {
+        if (loginUrl) {
+            window.location.href = `openapp.jdmobile://virtual/ad?params=${encodeURI(
+                JSON.stringify({
+                    category: 'jump',
+                    des: 'ThirdPartyLogin',
+                    action: 'to',
+                    onekeylogin: 'return',
+                    url: loginUrl,
+                    authlogin_returnurl: 'weixin://',
+                    browserlogin_fromurl: window.location.host,
+                })
+            )}`;
+        } else {
+            alert('还没加载好，请稍后重试');
+        }
+    })
+
+            function closeGlobalAd() {
+               var layer = document.getElementById('layer');
+               var globalAd = document.getElementById('globalAd');
+               globalAd.style.display = "none";
+               layer.style.display = "none";
+            }
+  </script>
+
+</html>
 
