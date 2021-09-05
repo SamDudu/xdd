@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/SamDudu/beego/core/logs"
+	"github.com/beego/beego/v2/core/logs"
 	"github.com/SamDudu/xdd/models"
 
-	"github.com/SamDudu/beego/client/httplib"
+	"github.com/beego/beego/v2/client/httplib"
 	qrcode "github.com/skip2/go-qrcode"
 )
 
