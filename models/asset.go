@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/SamDudu/beego/client/httplib"
+	"github.com/beego/beego/v2/client/httplib"
 	"github.com/buger/jsonparser"
 )
 

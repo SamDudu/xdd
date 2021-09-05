@@ -3,7 +3,7 @@ package models
 import (
 	"encoding/json"
 
-	"github.com/SamDudu/beego/client/httplib"
+	"github.com/beego/beego/v2/client/httplib"
 )
 
 func pushPlus(token string, content string) {

@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	"github.com/SamDudu/beego/client/httplib"
+	"github.com/beego/beego/v2/client/httplib"
 )
 
 type QywxConfig struct {

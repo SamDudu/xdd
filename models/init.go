@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/SamDudu/beego/core/logs"
+	"github.com/beego/beego/v2/core/logs"
 )
 
 var test2 = func(string) {

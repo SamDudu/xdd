@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/SamDudu/beego/core/logs"
+	"github.com/beego/beego/v2/core/logs"
 )
 
 func cmd(str string, sender *Sender) string {

@@ -7,8 +7,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/SamDudu/beego/client/httplib"
-	"github.com/SamDudu/beego/core/logs"
+	"github.com/beego/beego/v2/client/httplib"
+	"github.com/beego/beego/v2/core/logs"
 )
 
 var version = "2021082709"

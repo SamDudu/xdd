@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/SamDudu/beego/adapter/logs"
+	"github.com/beego/beego/v2/adapter/logs"
 )
 
 func Daemon() {

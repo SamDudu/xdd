@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/SamDudu/beego/core/logs"
+	"github.com/beego/beego/v2/core/logs"
 	tb "gopkg.in/tucnak/telebot.v2"
 )
 

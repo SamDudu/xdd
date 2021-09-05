@@ -1,8 +1,8 @@
 package models
 
 import (
-	"github.com/SamDudu/beego/adapter/logs"
-	"github.com/SamDudu/cron"
+	"github.com/beego/beego/v2/adapter/logs"
+	"github.com/robfig/cron/v3"
 )
 
 var c *cron.Cron

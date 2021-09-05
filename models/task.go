@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/SamDudu/beego/client/httplib"
-	"github.com/SamDudu/beego/core/logs"
+	"github.com/beego/beego/v2/client/httplib"
+	"github.com/beego/beego/v2/core/logs"
 )
 
 type Task struct {

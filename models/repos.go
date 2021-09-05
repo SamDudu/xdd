@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/SamDudu/cron"
+	"github.com/robfig/cron/v3"
 )
 
 type Repo struct {
