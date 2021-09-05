@@ -10,7 +10,7 @@ require (
 	github.com/Baozisoftware/qrcode-terminal-go v0.0.0-20170407111555-c0650d8dff0f
 	github.com/Mrs4s/MiraiGo v0.0.0-20210726103104-1d68826cef0e
 	github.com/Mrs4s/go-cqhttp v1.0.0-beta5
-	github.com/SamDudu/beego v2.0.1
+	github.com/beego/beego/v2 v2.0.1
 	github.com/buger/jsonparser v1.1.1
 	github.com/go-httpproxy/httpproxy v0.0.0-20180417134941-6977c68bf38e
 	github.com/go-playground/locales v0.13.0
@@ -21,7 +21,7 @@ require (
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/mattn/go-isatty v0.0.13 // indirect
 	github.com/pkg/errors v0.9.1
-	github.com/SamDudu/cron v3.0.1
+	github.com/robfig/cron/v3 v3.0.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/t-tomalak/logrus-easy-formatter v0.0.0-20190827215021-c074f06c5816

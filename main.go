@@ -6,11 +6,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/SamDudu/beego/client/httplib"
-	"github.com/SamDudu/beego/core/logs"
-	"github.com/SamDudu/beego/server/web/context"
+	"github.com/beego/beego/v2/client/httplib"
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/server/web/context"
 
-	"github.com/SamDudu/beego/server/web"
+	"github.com/beego/beego/v2/server/web"
 	"github.com/SamDudu/xdd/controllers"
 	"github.com/SamDudu/xdd/models"
 	"github.com/SamDudu/xdd/qbot"
